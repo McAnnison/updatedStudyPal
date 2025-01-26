@@ -59,6 +59,46 @@
             color: rgb(79, 166, 238);
         }
 
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: white;
+                position: absolute;
+                top: 60px;
+                right: 30px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+                overflow: hidden;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav li {
+                padding: 10px 20px;
+            }
+        }
+
         main {
             padding: 100px 20px 20px;
         }
@@ -147,6 +187,36 @@
 
         footer ul li a:hover {
             color: rgb(79, 166, 238);
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 30px 10px;
+            }
+
+            .contact-section h1 {
+                font-size: 1.5rem;
+            }
+
+            .contact-section input,
+            .contact-section textarea {
+                font-size: 0.9rem;
+            }
+
+            .contact-section button {
+                font-size: 0.9rem;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            footer .column {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
