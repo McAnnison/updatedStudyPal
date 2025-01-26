@@ -241,6 +241,13 @@
       transform: scale(1.05);
     }
 
+    .timer-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
     .timer {
       display: flex;
       flex-direction: column;
@@ -250,9 +257,9 @@
       height: 200px;
       border: 10px solid rgb(79, 166, 238);
       border-radius: 50%;
-      margin: 20px auto;
       font-size: 2rem;
       color: rgb(79, 166, 238);
+      margin-right: 20px;
     }
 
     .timer button {
@@ -280,7 +287,6 @@
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      margin-right: 20px;
     }
 
     .music-controls button {
@@ -334,8 +340,8 @@
       <h1>Start Learning</h1>
       <p>Welcome to the start of your learning journey with Study Pal. Here, you can customize your study sessions, access AI-driven quizzes, and much more.</p>
 
-      <!-- Music Controls on the left -->
-      <div style="display: flex; align-items: center;">
+      <div class="timer-container">
+        <!-- Music Controls on the left -->
         <div class="music-controls">
           <button onclick="playMusic()">Play Music</button>
           <button onclick="stopMusic()">Stop Music</button>
@@ -367,7 +373,7 @@
     <div class="column">
       <h3>Quick Links</h3>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#groups">Study Groups</a></li>
