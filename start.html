@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -242,6 +243,7 @@
 
     .timer {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 200px;
@@ -254,7 +256,7 @@
     }
 
     .timer button {
-      margin-top: 20px;
+      margin-top: 10px;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
@@ -275,9 +277,10 @@
 
     .music-controls {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       gap: 10px;
-      margin-top: 20px;
+      margin-right: 20px;
     }
 
     .music-controls button {
@@ -331,18 +334,23 @@
       <h1>Start Learning</h1>
       <p>Welcome to the start of your learning journey with Study Pal. Here, you can customize your study sessions, access AI-driven quizzes, and much more.</p>
 
-      <!-- Circular Timer -->
-      <div class="timer" id="timer">25:00</div>
-      <button onclick="chooseTimer()">Choose Timer</button>
-
-      <!-- Music Controls -->
-      <div class="music-controls">
-        <button onclick="playMusic()">Play Music</button>
-        <button onclick="stopMusic()">Stop Music</button>
+      <!-- Music Controls on the left -->
+      <div style="display: flex; align-items: center;">
+        <div class="music-controls">
+          <button onclick="playMusic()">Play Music</button>
+          <button onclick="stopMusic()">Stop Music</button>
+        </div>
+        
+        <!-- Circular Timer -->
+        <div class="timer" id="timer">25:00</div>
       </div>
+      <button onclick="chooseTimer()">Choose Timer</button>
+      <button onclick="startPomodoro()">Start</button>
+      <button onclick="pausePomodoro()">Pause</button>
 
       <!-- Upload Slides Button -->
       <button class="btn" onclick="uploadSlides()">Upload Slides</button>
+      <input type="file" id="fileInput" style="display: none;" />
 
       <!-- Generate AI Quiz Button -->
       <button class="btn" onclick="generateQuiz()">Generate AI Quiz</button>
@@ -359,7 +367,7 @@
     <div class="column">
       <h3>Quick Links</h3>
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#groups">Study Groups</a></li>
@@ -402,6 +410,10 @@
       }, 1000);
     }
 
+    function pausePomodoro() {
+      clearInterval(timerInterval);
+    }
+
     function chooseTimer() {
       const minutes = prompt('Enter the number of minutes for the timer:', '25');
       if (minutes !== null && !isNaN(minutes) && minutes > 0) {
@@ -421,8 +433,7 @@
     }
 
     function uploadSlides() {
-      // Add file upload functionality here
-      alert('Uploading slides...');
+      document.getElementById('fileInput').click();
     }
 
     function generateQuiz() {
