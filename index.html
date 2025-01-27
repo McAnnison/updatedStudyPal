@@ -6,6 +6,52 @@
   <title>Study Pal</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+.title-animation {
+  position: relative;
+  font-size: 2.5em;
+  color: blue;
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid orange; /* The typing cursor */
+  white-space: nowrap; /* Keeps the text on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em;
+  animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: orange; }
+}
+
+.underline {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+.underline path {
+  stroke: blue;
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw 2s ease-out forwards 3.5s; /* Starts after text animation */
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+    
     body {
       margin: 0;
       padding: 0;
@@ -151,7 +197,7 @@
     }
 
     .section img {
-      max-width: 100%;
+      max-width: 70%;
       border-radius: 10px;
       flex: 1;
     }
@@ -270,8 +316,14 @@
 
   <main>
     <section id="home" class="section hidden">
-      <div class="section-content">
-        <h1>Welcome to Study Pal</h1>
+  <div class="section-content">
+    <h1 class="title-animation">
+      Welcome to
+      <span>Study Pal</span>
+      <svg class="underline" viewBox="0 0 120 20" preserveAspectRatio="none">
+        <path d="M10,10 Q20,0 30,10 T50,10 T70,10 T90,10 T110,10" />
+      </svg>
+  </div>
         <p>Discover a new way to enhance your study sessions with music integration and customizable Pomodoro timers. Join us to experience AI-driven quizzes and collaborative learning.</p>
       </div>
       <img src="hero.webp" alt="image_home">
