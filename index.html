@@ -107,7 +107,6 @@
       align-items: center;
     }
 
-
     @media (max-width: 768px) {
       .hamburger {
         display: flex;
@@ -140,14 +139,25 @@
 
     .section {
       padding: 50px 20px;
-      text-align: center;
       margin: 20px auto;
       max-width: 800px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .section:nth-child(even) {
+      flex-direction: row-reverse;
     }
 
     .section img {
       max-width: 100%;
       border-radius: 10px;
+      flex: 1;
+    }
+
+    .section-content {
+      flex: 1;
     }
 
     .hidden {
@@ -172,59 +182,70 @@
       transform: translateX(0);
     }
 
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section:nth-child(even) {
+        flex-direction: column;
+      }
+    }
+
     footer {
-  background-color: #f8f8f8;
-  color: #333;
-  padding: 20px 30px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
+      background-color: #f8f8f8;
+      color: #333;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-footer .column {
-  flex: 1 1 200px;
-  margin: 10px;
-}
+    footer .column {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
 
-footer h3 {
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  color: #000;
-}
+    footer h3 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #000;
+    }
 
-footer ul {
-  list-style: none;
-  padding: 0;
-}
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
 
-footer ul li {
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-}
+    footer ul li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
 
-footer ul li a {
-  color: #0073e6;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
+    footer ul li a {
+      color: #0073e6;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
 
-footer ul li a:hover {
-  text-decoration: underline;
-}
+    footer ul li a:hover {
+      text-decoration: underline;
+    }
 
-footer ul li img {
-  height: 24px;
-  width: 24px;
-  margin-right: 10px;
-  transition: opacity 0.3s;
-}
+    footer ul li img {
+      height: 24px;
+      width: 24px;
+      margin-right: 10px;
+      transition: opacity 0.3s;
+    }
 
-footer ul li img:hover {
-  opacity: 0.7;
-}
+    footer ul li img:hover {
+      opacity: 0.7;
+    }
   </style>
 </head>
 <body>
@@ -249,41 +270,55 @@ footer ul li img:hover {
 
   <main>
     <section id="home" class="section hidden">
-      <h1>Welcome to Study Pal</h1>
-      <p>Discover a new way to enhance your study sessions with music integration and customizable Pomodoro timers. Join us to experience AI-driven quizzes and collaborative learning.</p>
-      <img src="hero.webp" alt="image_home">
-      <div>
-        <h1>Our Mission and Values</h1>
-        <p>At Study Pal, our mission is to enhance student productivity and learning experiences through innovative technology and collaborative tools. We believe in innovation, collaboration, and engagement as core values that guide our approach.</p>
-        <img src="mission.webp" alt="mission">
+      <div class="section-content">
+        <h1>Welcome to Study Pal</h1>
+        <p>Discover a new way to enhance your study sessions with music integration and customizable Pomodoro timers. Join us to experience AI-driven quizzes and collaborative learning.</p>
       </div>
+      <img src="hero.webp" alt="image_home">
     </section>
 
     <section id="about" class="section hidden">
-      <h1>About Us</h1>
-      <p>At Study Pal, we aim to revolutionize learning by integrating music and customizable Pomodoro timers to boost productivity and engagement.</p>
+      <div class="section-content">
+        <h1>About Us</h1>
+        <p>At Study Pal, we aim to revolutionize learning by integrating music and customizable Pomodoro timers to boost productivity and engagement.</p>
+      </div>
+      <img src="about.webp" alt="about">
     </section>
 
     <section id="features" class="section hidden">
-      <h1>Explore Our Innovative Features</h1>
-      <p>Discover how Study Pal enhances your learning experience with music integration, customizable Pomodoro timers, and AI-driven quizzes. Our platform is designed to boost productivity and foster collaborative learning, making study sessions more effective and engaging.</p>
-      <div>
-        <img src="learn.webp" alt="music">
+      <div class="section-content">
+        <h1>Explore Our Innovative Features</h1>
+        <p>Discover how Study Pal enhances your learning experience with music integration, customizable Pomodoro timers, and AI-driven quizzes. Our platform is designed to boost productivity and foster collaborative learning, making study sessions more effective and engaging.</p>
+      </div>
+      <img src="features.webp" alt="features">
+    </section>
+
+    <section id="music" class="section hidden">
+      <div class="section-content">
         <h3>Music Integration for Focus</h3>
         <p>Our platform integrates music to help students maintain focus and enhance productivity during study sessions. Choose from a variety of playlists tailored to different study needs.</p>
       </div>
-      <div>
-        <img src="timer.webp" alt="timer">
+      <img src="learn.webp" alt="music">
+    </section>
+
+    <section id="timer" class="section hidden">
+      <div class="section-content">
         <h3>Customizable Pomodoro Timers</h3>
         <p>Manage your study sessions effectively with our customizable Pomodoro timers. Set your preferred study and break intervals to optimize your learning routine.</p>
       </div>
-      <div>
-        <img src="quiz.webp" alt="quiz">
+      <img src="timer.webp" alt="timer">
+    </section>
+
+    <section id="quiz" class="section hidden">
+      <div class="section-content">
         <h3>AI-Driven Quizzes</h3>
         <p>Reinforce your knowledge with AI-driven quizzes generated after learning sessions. Track your progress and identify areas for improvement with instant feedback.</p>
       </div>
-      <div>
-        <img src="upload.webp" alt="upload">
+      <img src="quiz.webp" alt="quiz">
+    </section>
+
+    <section id="upload" class="section hidden">
+      <div class="section-content">
         <h3>Effortlessly Upload Your Study Materials</h3>
         <p>With Study Pal, you can easily upload your notes in PDF, Word, or PPT formats. This flexibility ensures that you have all your study materials in one place, ready for efficient study sessions.</p>
         <ul>
@@ -292,26 +327,32 @@ footer ul li img:hover {
           <li>Organize and access your notes anytime</li>
         </ul>
       </div>
+      <img src="upload.webp" alt="upload">
     </section>
 
     <section id="groups" class="section hidden">
-      <h1>Join Our Engaging Study Groups for Collaborative Learning</h1>
-      <p>Connect with peers in your field of interest and enhance your learning experience through collaborative study groups. Share insights, discuss topics, and grow together with Study Pal.</p>
-      <ul>
-        <li>Find groups based on your academic interests</li>
-        <li>Engage in meaningful discussions and knowledge sharing</li>
-        <li>Enhance your study sessions with peer support</li>
-      </ul>
+      <div class="section-content">
+        <h1>Join Our Engaging Study Groups for Collaborative Learning</h1>
+        <p>Connect with peers in your field of interest and enhance your learning experience through collaborative study groups. Share insights, discuss topics, and grow together with Study Pal.</p>
+        <ul>
+          <li>Find groups based on your academic interests</li>
+          <li>Engage in meaningful discussions and knowledge sharing</li>
+          <li>Enhance your study sessions with peer support</li>
+        </ul>
+      </div>
       <img src="group.webp" alt="join">
     </section>
 
     <section id="start" class="section hidden">
-      <h1>Track Your Academic Progress with Ease</h1>
-      <p>With Study Pal, students can effortlessly monitor their academic performance. Our platform provides detailed insights into quiz scores, helping you identify strengths and areas for improvement. Enhance your study strategies and achieve your academic goals with our comprehensive progress tracking tools.</p>
-      <h3>Quiz Scores</h3>
-      <p>Receive instant feedback on quizzes to gauge your understanding.</p>
-      <h3>Study Insights</h3>
-      <p>Analyze your performance trends to optimize study sessions.</p>
+      <div class="section-content">
+        <h1>Track Your Academic Progress with Ease</h1>
+        <p>With Study Pal, students can effortlessly monitor their academic performance. Our platform provides detailed insights into quiz scores, helping you identify strengths and areas for improvement. Enhance your study strategies and achieve your academic goals with our comprehensive progress tracking tools.</p>
+        <h3>Quiz Scores</h3>
+        <p>Receive instant feedback on quizzes to gauge your understanding.</p>
+        <h3>Study Insights</h3>
+        <p>Analyze your performance trends to optimize study sessions.</p>
+      </div>
+      <img src="start.webp" alt="start">
     </section>
   </main>
 
@@ -362,4 +403,4 @@ footer ul li img:hover {
     document.addEventListener('DOMContentLoaded', handleScroll);
   </script>
 </body>
-</html>-
+</html>
